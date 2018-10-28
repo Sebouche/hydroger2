@@ -23,7 +23,6 @@ class Atome:
     def reset(self):
         self.dead = False
         self.dying = False
-        self.dying = 0
         self.hp = self.hpMax
 
     def hit(self, damage):
