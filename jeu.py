@@ -15,9 +15,19 @@ import tampon
 import pickle
 from menu import *
 import atome
+from os import listdir
 
-with open("options.pickle", 'rb') as file:
+listeFichiers = [f for f in listdir()]
+
+if "options.pickle" in listeFichiers:
+    with open("options.pickle", 'rb') as file:
         donnees = pickle.load(file)
+else:
+    donnees = [1, 1, 600, 768, [122, 276, 275, 273, 274, 304, 120], 0, 0, [0] * 5, 50, 2]
+    with open("options.pickle", 'wb') as file:  # niveauActuel,niveauMaxAtteint,hauteur,largeur,touches,positionx,positiony,meilleur_score,volume,difficultechoisie
+        pickle.dump(donnees, file)
+
+
 constantes.volume=donnees[8]
 pygame.mixer.init(frequency=22050, size=-16, channels=25, buffer=4096)
 explosion1 = pygame.mixer.Sound("resources/explosion1.wav")

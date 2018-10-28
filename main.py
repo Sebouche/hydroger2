@@ -19,7 +19,9 @@ pygame.init()
 pygame.mixer.init()
 
 with open("options.pickle", 'rb') as file:
-        donnees = pickle.load(file)
+    donnees = pickle.load(file)
+
+
 constantes.niveauActuel = donnees[0]
 constantes.niveauMaxAtteint = donnees[1]
 constantes.hauteur=donnees[2]
