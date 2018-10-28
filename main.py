@@ -31,9 +31,13 @@ constantes.difficultechoisie=donnees[9]
 
 
 pygame.mixer.init(frequency=22050, size=-16, channels=25, buffer=4096)
-pygame.mixer.music.load('menu.wav')
-pygame.mixer.music.play(-1)
-pygame.mixer.music.set_volume(constantes.volume/100)
+try:
+    pygame.mixer.music.load('menu.wav')
+    pygame.mixer.music.play(-1)
+    pygame.mixer.music.set_volume(constantes.volume/100)
+except:
+    print("musique du menu introuvable")
+
 
 fenetre = Fenetre("Hyd'Roger", constantes.largeur, constantes.hauteur)
 fond = pygame.image.load("resources/photos/hyd'roger.png").convert()
@@ -260,4 +264,3 @@ while 1:
             sys.exit()
     pygame.display.update()
     pygame.time.wait(8)
-

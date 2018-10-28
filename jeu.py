@@ -387,18 +387,24 @@ class Jeu:
             self.introLevel()
             self.choixobjet()
             self.dialoguer(self.niveau.firstDialog,1)
-            pygame.mixer.music.load(self.niveau.pathMusicLevel)
-            pygame.mixer.music.play(-1)
-            pygame.mixer.music.set_volume(constantes.volume/100)
+            try:
+                pygame.mixer.music.load(self.niveau.pathMusicLevel)
+                pygame.mixer.music.play(-1)
+                pygame.mixer.music.set_volume(constantes.volume/100)
+            except:
+                print("musique du niveau {} introuvable".format(self.niveau.numero))
             self.tempspause=0
             self.play(0)
             pygame.mixer.music.pause()
             if self.moleculeJoueur.dead == False:
                 self.dialoguer(self.niveau.middleDialog,1)
                 self.tempspause=0
-                pygame.mixer.music.load(self.niveau.pathMusicBoss)
-                pygame.mixer.music.play(-1)
-                pygame.mixer.music.set_volume(constantes.volume/100)
+                try:
+                    pygame.mixer.music.load(self.niveau.pathMusicBoss)
+                    pygame.mixer.music.play(-1)
+                    pygame.mixer.music.set_volume(constantes.volume/100)
+                except:
+                    print("musique du boss du niveau {} introuvable".format(self.niveau.numero))
                 #self.niveau.boss.posX = (constantes.largeur-self.niveau.boss.rect.width)/2
                 #self.niveau.boss.posY = 10
                 #self.niveau.boss.rect.x = self.niveau.boss.posX
