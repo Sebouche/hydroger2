@@ -1,3 +1,2 @@
-options.pickle
-positions.pickle
+*.pickle
 __pycache__
