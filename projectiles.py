@@ -231,8 +231,11 @@ class Laserbleu:
         self.rect.x = self.posX
         self.rect.y = self.posY
         liste=[]
+        """
         with open("positions.pickle", 'rb') as file:
             positions=pickle.load(file)
+        """
+        positions = constantes.ennemis
         donnees=positions[0]
         if len(donnees)!=0:
             for i in range(len(donnees)):
@@ -286,8 +289,11 @@ class Muon:
         self.rect.x = self.posX
         self.rect.y = self.posY
         liste=[]
+        """
         with open("positions.pickle", 'rb') as file:
             positions=pickle.load(file)
+        """
+        positions = constantes.ennemis
         donnees=positions[0]
         if len(donnees)!=0:
             for i in range(len(donnees)):

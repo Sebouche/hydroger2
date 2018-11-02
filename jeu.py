@@ -623,8 +623,11 @@ class Jeu:
 
 
     def sauverpositions(self) :
+        """
         rect=[]
         for ennemi in self.ennemyList:
             rect.append((ennemi.posX,ennemi.posY))
         with open("positions.pickle", 'wb') as file:
             pickle.dump([rect],file)
+        """
+        constantes.ennemis = self.ennemyList
