@@ -45,7 +45,6 @@ def scenario1(t1,t2,tempspause,phase):
         phase=6
     if temps>36 and temps<=39 and phase==6:
         phase=7
-        dialog=1
     if temps>39 and temps<=42 and phase==7:
         ennemi.append(niveau.Niveau.genererMob(0,atome.AntiHydrogene(242,0,0),Pattern(0,0.5)))
         phase=8
