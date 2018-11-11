@@ -593,7 +593,6 @@ class Jeu:
         if p==0:
             if n==0:
                 self.moleculeJoueur.img=pygame.image.load('resources/photos/superoger.png').convert_alpha()
-                self.moleculeJoueur.rect = self.moleculeJoueur.img.get_rect()
                 self.temps=500
                 self.boost=2
                 objet1.play()
