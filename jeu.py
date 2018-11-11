@@ -459,9 +459,10 @@ class Jeu:
                     self.moleculeJoueur.reset()
                     self.clearProj()
                     self.ennemyList = []
-                    self.play(1)
                     self.changeNiveau(0) #Et 0 quand on recharge le niveau.
                     pygame.mixer.music.pause()
+                    self.progressInLevel()
+
 
     def waitForSelection(self):
         while 1:
