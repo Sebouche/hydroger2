@@ -615,18 +615,21 @@ class AntiOxygene(Atome):
     def __init__(self , posX, posY,pattern):
         Atome.__init__(self,  posX, posY,pattern)
         self.hp=160
-        self.delayTirMax=100
+        self.delayTirMax=60
         self.delayTir=randint(0,self.delayTirMax)
         self.img = pygame.image.load('resources/photos/anti_oxygene.png').convert_alpha()
         self.rect = self.img.get_rect()
+        self.ancienposX=self.posX
+        self.ancienposY=self.posY
     def tir(self):
         if self.delayTir<0:
-            proj=[]
-            for i in range(-1,3,2):
-                for j in range(-1,3,2):
-                    proj.append(Antiprojectile(self.posX,self.posY,i,j))
-            self.delayTir=100
-            return proj
+            self.ancienposX=constantes.positionx
+            self.ancienposY=constantes.positiony
+            distance=sqrt(pow(self.ancienposX-self.posX,2)+pow(self.ancienposY-self.posY,2))
+            a = (float((self.ancienposX-self.posX)/distance))*2
+            b = (float((self.ancienposY-self.posY)/distance))*2
+            self.delayTir=self.delayTirMax
+            return [Antiprojectile(self.posX, self.posY, 0,0, PatternSinusoidalAmplifie(self.posX,self.posY,30,a*3,b*3,0))]
         else:
             self.delayTir-=1
         return []
