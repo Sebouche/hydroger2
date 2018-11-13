@@ -37,7 +37,7 @@ class Patternaccelere(Pattern):
 
 class PatternPolynome(Pattern):
     """Pattern qui fait se déplacer selon un polynome du second degré."""
-    def __init__(self, a, b, c):
+    def __init__(self, a, b, c, posX=0,posY=0):
         self.a = a
         self.b = b
         self.c = abs(c)  #je pense pas qu'on aura une ordonnée à l'origine en dehors de l'écran
@@ -45,10 +45,12 @@ class PatternPolynome(Pattern):
             self.dir = 1
         else:
             self.dir = -1
+        self.posX=posX-constantes.largeur/2
+        self.posY=posY
 
     def deplacer(self, posX, posY):
-        posX += self.dir-constantes.largeur/2
-        posY = self.a * posX * posX + self.b * posX + self.c
+        posX +=self.dir-constantes.largeur/2
+        posY = self.a * abs(posX-self.posX) ** 2 + self.b * abs(posX-self.posX) + self.c + self.posY
         return posX+constantes.largeur/2, posY
 
 class PatternCercle(Pattern):
