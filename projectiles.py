@@ -91,7 +91,7 @@ class Antiprojectile(Projectile):
         Projectile.move(self)
         if self.posY<=0 or self.posY>=constantes.hauteur-15 or self.posX<=0 or self.posX>=constantes.largeur-15:
             self.dead=True
-            self.boom=[Projectile(self.posX, self.posY, randint(1,3)/4,randint(-3,-1)/4), Projectile(self.posX, self.posY,randint(1,3)/4,randint(1,3)/4), Projectile(self.posX, self.posY,randint(-3,-1)/4,randint(1,3)/4), Projectile(self.posX, self.posY,randint(-3,-1)/4,randint(-3,-1)/4)]
+            self.boom=[Projectile(self.posX, self.posY, uniform(1,3)/4,uniform(-3,-1)/4), Projectile(self.posX, self.posY,uniform(1,3)/4,uniform(1,3)/4), Projectile(self.posX, self.posY,uniform(-3,-1)/4,uniform(1,3)/4), Projectile(self.posX, self.posY,uniform(-3,-1)/4,uniform(-3,-1)/4)]
 
 
 class Scatter(Projectile):
@@ -106,10 +106,10 @@ class Scatter(Projectile):
     def move(self):
         Projectile.move(self)
         if self.colli==True:
-            self.boom=[Antiprojectile(self.posX, self.posY, randint(1,3)/4,randint(-3,-1)/4), Antiprojectile(self.posX, self.posY,randint(1,3)/4,randint(1,3)/4), Antiprojectile(self.posX, self.posY,randint(-3,-1)/4,randint(1,3)/4)]
+            self.boom=[Antiprojectile(self.posX, self.posY, uniform(1,3)/4,uniform(-3,-1)/4), Antiprojectile(self.posX, self.posY,uniform(1,3)/4,uniform(1,3)/4), Antiprojectile(self.posX, self.posY,uniform(-3,-1)/4,uniform(1,3)/4)]
         elif self.posY<=0 or self.posY>=constantes.hauteur-15 or self.posX<=0 or self.posX>=constantes.largeur-15:
             self.dead=True
-            self.boom=[Projectile(self.posX, self.posY, randint(1,3)/4,randint(-3,-1)/4), Projectile(self.posX, self.posY,randint(1,3)/4,randint(1,3)/4), Projectile(self.posX, self.posY,randint(-3,-1)/4,randint(1,3)/4), Projectile(self.posX, self.posY,randint(-3,-1)/4,randint(-3,-1)/4)]
+            self.boom=[Projectile(self.posX, self.posY, uniform(1,3)/4,uniform(-3,-1)/4), Projectile(self.posX, self.posY,uniform(1,3)/4,uniform(1,3)/4), Projectile(self.posX, self.posY,uniform(-3,-1)/4,uniform(1,3)/4), Projectile(self.posX, self.posY,uniform(-3,-1)/4,uniform(-3,-1)/4)]
 
 class Laser:
 
